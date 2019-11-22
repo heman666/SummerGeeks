@@ -57,8 +57,8 @@ const VisitorSchema = new mongoose.Schema({
 
 VisitorSchema.pre('save', async function(next){
     const nexmo = new Nexmo({
-        apiKey: 'bfb73f3d',
-        apiSecret: 'KPPWXrQ2thK5Kt7i',
+        apiKey: 'xxxxxxxx', //your nexmo apikey
+        apiSecret: 'xxxxxxxxxxxxx',// your nexmo api secretkey
       });
     console.log('entered')
         if(this.checked_out){
@@ -67,13 +67,13 @@ VisitorSchema.pre('save', async function(next){
                 port: 465,
                 secure: true, // use SSL
                 auth: {
-                    user: 'wandermate.help@gmail.com',
-                    pass: 'wandermate123'
+                    user: '',//Your Email
+                    pass: '',//Your password
                     }
                 });
                 var mailOptions1 = {
                     to: this.host_email,
-                    from: 'wandermate.help@gmail.com',
+                    from: '',//your email
                     subject: 'Host details',
                     text: '',
                     html:'<h2>Host Details:</h2><br>'+
@@ -104,13 +104,13 @@ VisitorSchema.pre('save', async function(next){
                 port: 465,
                 secure: true, // use SSL
                 auth: {
-                    user: 'wandermate.help@gmail.com',
-                    pass: 'wandermate123'
+                    user: '',// your email address
+                    pass: ''// your password
                     }
                 });
                 var mailOptions1 = {
                     to: this.host_email,
-                    from: 'wandermate.help@gmail.com',
+                    from: '',// your email address
                     subject: 'Visitor details',
                     text: '',
                     html:'<h2>Visitor Details:</h2><br>'+
@@ -121,7 +121,7 @@ VisitorSchema.pre('save', async function(next){
                 };
                 var mailOptions2 = {
                     to: this.visitor_email,
-                    from: 'wandermate.help@gmail.com',
+                    from: '',// your email address
                     subject: 'Check Out Here!',
                     text: '',
                     html:'<h2>Please click the link to check out:</h2><br>'+
